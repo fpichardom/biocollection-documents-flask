@@ -1,0 +1,28 @@
+version: '3'
+
+services: 
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    #command: flask run
+    volumes:
+      - .:/code
+    environment:
+      - FLASK_ENV=development
+      - FLASK_APP=myapp.py
+    depends_on:
+      - db
+  db:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: myapp
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: myuserpassword
+volumes:
+  mysql-data:

@@ -1,0 +1,35 @@
+{%extends 'base.html'%}
+
+{% block content %}
+
+<section class="bg-slate-400 dark:bg-gray-900 min-h-screen flex items-center justify-center">
+  <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto">
+    <div class="w-full max-w-lg bg-white rounded-lg shadow-xl dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+      <div class="p-8 space-y-6">
+        <h1 class="text-2xl font-bold leading-tight tracking-tight text-gray-900 md:text-3xl dark:text-white">
+          Sign in to your account
+        </h1>
+        <form class="space-y-6" action="" method="POST" novalidate>
+          {{ form.hidden_tag() }}
+          <div>
+            {{ form.username.label(class="block mb-2 text-sm font-medium text-gray-900 dark:text-white") }}
+            {{ form.username(class="bg-gray-50 border border-gray-400 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white", placeholder="Your username") }}
+          </div>
+          <div>
+            {{ form.password.label(class="block mb-2 text-sm font-medium text-gray-900 dark:text-white") }}
+            {{ form.password(class="bg-gray-50 border border-gray-400 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white", placeholder="••••••••") }}
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              {{ form.remember_me(class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600") }}
+              <label for="{{ form.remember_me.id }}" class="ml-2 text-sm text-gray-600 dark:text-gray-300">{{ form.remember_me.label.text }}</label>
+            </div>
+          </div>
+          <button type="submit" class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign in</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
